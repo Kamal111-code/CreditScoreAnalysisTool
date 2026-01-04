@@ -42,7 +42,7 @@ public interface CreditScoreRepository extends JpaRepository<CreditScore, Intege
      * @param emailId The email ID associated with the user's credit score.
      * @return The latest CreditScore entity for the given email.
      */
-	CreditScore findTopByEmailIdOrderByDateDesc(String emailId);
+	// CreditScore findTopByEmailIdOrderByDateDesc(String emailId);
 	
     /**
      * Retrieves all credit scores that were last updated before a specific date and time.

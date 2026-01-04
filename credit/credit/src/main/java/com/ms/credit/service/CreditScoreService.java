@@ -28,7 +28,7 @@ public class CreditScoreService {
     @Autowired
     private CreditScoreRepository creditScoreRepository;
     @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private KafkaTemplate<String, NotificationDTO> kafkaTemplate;
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
     private static final Logger logger = LogManager.getLogger(CreditScoreService.class);
@@ -44,7 +44,7 @@ public class CreditScoreService {
         CreditScore creditScore = (CreditScore) redisTemplate.opsForValue().get(emailId);
         if (creditScore == null) {
             logger.info("Fetching from DB");
-            creditScore = creditScoreRepository.findTopByEmailIdOrderByDateDesc(emailId);
+            creditScore = creditScoreRepository.findTopByUserIdOrderByDateDesc(userId);
         } else {
             logger.info("Fetched from Redis");
         }

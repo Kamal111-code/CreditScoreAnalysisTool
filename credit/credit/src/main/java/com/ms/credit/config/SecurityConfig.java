@@ -1,4 +1,4 @@
-package com.credit.userms.config;
+package com.ms.credit.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
